@@ -1,0 +1,82 @@
+@url=http://localhost:3000
+###
+GET {{url}}/users
+
+###
+GET {{url}}/users/4
+
+###
+POST {{url}}/users
+Content-Type: application/json
+
+{
+    "name": "David"
+}
+
+###
+PUT {{url}}/users/1
+Content-Type: application/json
+
+{
+    "name": "Bruce"
+}
+
+###
+DELETE {{url}}/users/7
+
+###
+POST {{url}}/recipe
+Content-Type: application/json
+
+{
+    "title": "raw egg",
+    "category_id": 2,
+    "ingredients": "egg",
+    "image": "image",
+    "by_user_id": 2
+}
+
+###
+GET {{url}}/recipe
+Authorization: Bearer 12345666
+
+###
+GET {{url}}/category
+
+###
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "brody@yahoo.com",
+    "password": "123",
+    "fullname": "brody"
+}
+
+###
+POST {{url}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "brody@yahoo.com",
+    "password": "123"
+}
+
+###
+GET {{url}}/recipe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNDkwOTE2LTNiN2MtNDYwZi1hNDEwLWM4M2M5YWRiYWRiMSIsImVtYWlsIjoiYnJvZHlAeWFob28uY29tIiwiZnVsbG5hbWUiOiJicm9keSIsInByb2ZpbGVwaWMiOm51bGwsImlzX3ZlcmlmIjowLCJvdHAiOiJ1bmRlZmluZWQiLCJ0aW1lX2NyZWF0ZSI6IjIwMjMtMDItMjdUMTI6MTA6MTMuNzM1WiIsImlhdCI6MTY3NzUwMjYwNiwiZXhwIjoxNjc4ODE2NjA2fQ.BnR15w71mG6yCxZDVJYUlEyz3h38OyZMWqo1C0buqAg
+
+###
+GET {{url}}/recipe/myrecipe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1ZDI4ZDI2LWM4YmEtNGFiOC1iOTIyLWYyYzk5OWQzYzc4MiIsImVtYWlsIjoiaXJAeWFob28uY28uaWQiLCJmdWxsbmFtZSI6Imlyc3lhZCByYW1hZGhhbiIsInByb2ZpbGVwaWMiOm51bGwsImlzX3ZlcmlmIjowLCJvdHAiOm51bGwsInRpbWVfY3JlYXRlIjoiMjAyMy0wMi0yNlQxOTowNDozMy42OTNaIiwiaWF0IjoxNjc3NDgzMjkwLCJleHAiOjE2Nzg3OTcyOTB9.q6QEkYvekhXXjZpPVg3HqjdBzkQh0xIKWEFaWR3fe6U
+
+###
+POST {{url}}/recipe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNDkwOTE2LTNiN2MtNDYwZi1hNDEwLWM4M2M5YWRiYWRiMSIsImVtYWlsIjoiYnJvZHlAeWFob28uY29tIiwiZnVsbG5hbWUiOiJicm9keSIsInByb2ZpbGVwaWMiOm51bGwsImlzX3ZlcmlmIjowLCJvdHAiOiJ1bmRlZmluZWQiLCJ0aW1lX2NyZWF0ZSI6IjIwMjMtMDItMjdUMTI6MTA6MTMuNzM1WiIsImlhdCI6MTY3NzUwMjYwNiwiZXhwIjoxNjc4ODE2NjA2fQ.BnR15w71mG6yCxZDVJYUlEyz3h38OyZMWqo1C0buqAg
+
+{
+    "title": "friend rice",
+    "category_id": 2,
+    "ingredient": "rice, egg",
+    "image": "image"
+}

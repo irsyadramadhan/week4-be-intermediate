@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "7c332142-fcd0-4924-896b-40927af3ccee",
+		"name": "be with auth  and file upload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get recipe with query",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/recipe?sort=DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recipe"
+					],
+					"query": [
+						{
+							"key": "searchBy",
+							"value": "title",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "salmon",
+							"disabled": true
+						},
+						{
+							"key": "sortBy",
+							"value": "time_create",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "DESC"
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post recipe (need auth)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIzNjllYTI4LTg5ZTgtNDM4MS05MWRmLTIxMjQ0ZDc3MDI1MCIsImVtYWlsIjoicHJlc2VudGFzaUB5YWhvby5jb20iLCJmdWxsbmFtZSI6InByZXNlbnRhc2kiLCJwcm9maWxlcGljIjpudWxsLCJpc192ZXJpZiI6MCwib3RwIjoidW5kZWZpbmVkIiwidGltZV9jcmVhdGUiOiIyMDIzLTAyLTI4VDA0OjAwOjQxLjQ4MFoiLCJpYXQiOjE2Nzc2NjEzNzksImV4cCI6MTY3ODk3NTM3OX0.OVjzAv0Yufp3cF7Odde0JxNPIOwRgBvbBiAxOGZSUE8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "i will delete this",
+							"type": "default"
+						},
+						{
+							"key": "category_id",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "ingredient",
+							"value": "vibranium",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Irsyad/Pictures/food/sushi.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put recipe (need auth)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIzNjllYTI4LTg5ZTgtNDM4MS05MWRmLTIxMjQ0ZDc3MDI1MCIsImVtYWlsIjoicHJlc2VudGFzaUB5YWhvby5jb20iLCJmdWxsbmFtZSI6InByZXNlbnRhc2kiLCJwcm9maWxlcGljIjpudWxsLCJpc192ZXJpZiI6MCwib3RwIjoidW5kZWZpbmVkIiwidGltZV9jcmVhdGUiOiIyMDIzLTAyLTI4VDA0OjAwOjQxLjQ4MFoiLCJpYXQiOjE2Nzc2NjEzNzksImV4cCI6MTY3ODk3NTM3OX0.OVjzAv0Yufp3cF7Odde0JxNPIOwRgBvbBiAxOGZSUE8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "ham and cheese wraps",
+							"type": "default"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "ingredient",
+							"value": "ham, cheese",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Irsyad/Pictures/food/icecream.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/recipe/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recipe",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"presentasi@yahoo.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"testing2@yahoo.com\",\r\n    \"password\": \"123\",\r\n    \"fullname\": \"testing2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get myrecipe (need auth)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIzNjllYTI4LTg5ZTgtNDM4MS05MWRmLTIxMjQ0ZDc3MDI1MCIsImVtYWlsIjoicHJlc2VudGFzaUB5YWhvby5jb20iLCJmdWxsbmFtZSI6InByZXNlbnRhc2kiLCJwcm9maWxlcGljIjpudWxsLCJpc192ZXJpZiI6MCwib3RwIjoidW5kZWZpbmVkIiwidGltZV9jcmVhdGUiOiIyMDIzLTAyLTI4VDA0OjAwOjQxLjQ4MFoiLCJpYXQiOjE2Nzc2NjEzNzksImV4cCI6MTY3ODk3NTM3OX0.OVjzAv0Yufp3cF7Odde0JxNPIOwRgBvbBiAxOGZSUE8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/recipe/myrecipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recipe",
+						"myrecipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete recipe (need auth)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIzNjllYTI4LTg5ZTgtNDM4MS05MWRmLTIxMjQ0ZDc3MDI1MCIsImVtYWlsIjoicHJlc2VudGFzaUB5YWhvby5jb20iLCJmdWxsbmFtZSI6InByZXNlbnRhc2kiLCJwcm9maWxlcGljIjpudWxsLCJpc192ZXJpZiI6MCwib3RwIjoidW5kZWZpbmVkIiwidGltZV9jcmVhdGUiOiIyMDIzLTAyLTI4VDA0OjAwOjQxLjQ4MFoiLCJpYXQiOjE2Nzc2NjIwODUsImV4cCI6MTY3ODk3NjA4NX0.SD0RYLjga-jfdnwMQWOdFNvKFQSZ-RuAy7EP4Aek5NA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/recipe/23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recipe",
+						"23"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
